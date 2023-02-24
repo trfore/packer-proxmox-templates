@@ -1,0 +1,16 @@
+# General Ignore
+.DS_Store
+.venv
+Thumbs.db
+
+## Local Testing Files
+*.secret*
+*.private*
+
+# Packer Ignore
+packer_cache/
+crash.log
+## semi-sensitive variables (e.g. API endpoints), are stored in the autofill var file
+*.auto.pkrvars.hcl
+## example file for public repo use
+!example.auto.pkrvars.hcl

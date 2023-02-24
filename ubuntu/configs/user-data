@@ -1,0 +1,26 @@
+#cloud-config
+autoinstall:
+  version: 1
+  user-data:
+    disable_root: false
+    users: []
+  locale: en_US.UTF-8
+  packages:
+    - qemu-guest-agent
+  refresh-installer:
+    update: true
+  shutdown: reboot
+  ssh:
+    install-server: true
+    allow-pw: false
+    authorized-keys:
+      - ${ssh_public_key}
+  timezone: UTC
+  updates: all # "security" or "all"
+  apt:
+    %{ if var.apt_proxy_http != "" }
+    http_proxy: ${var.apt_proxy_http}
+    %{ endif }
+    %{ if var.apt_proxy_https != "" }
+    https_proxy: ${var.apt_proxy_https}
+    %{ endif }

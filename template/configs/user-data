@@ -1,0 +1,26 @@
+#cloud-config
+autoinstall:
+  version: 1
+  user-data:
+    disable_root: false   # allow SSH for root
+    users: []             # skip creating default users
+  locale: en_US.UTF-8
+  packages:
+    - qemu-guest-agent
+  refresh-installer:
+    update: true
+  shutdown: reboot
+  ssh:
+    install-server: true  # enable SSH server
+    allow-pw: false       # disable password authentication
+    authorized-keys:
+      - ${ssh_public_key} # add SSH key to root user
+  timezone: UTC
+  updates: all            # update all packages
+  apt:
+    %{ if var.apt_proxy_http != "" }
+    http_proxy: ${var.apt_proxy_http}
+    %{ endif }
+    %{ if var.apt_proxy_https != "" }
+    https_proxy: ${var.apt_proxy_https}
+    %{ endif }

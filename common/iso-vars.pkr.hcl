@@ -20,9 +20,47 @@ variable "apt_proxy_https" {
   default     = ""
 }
 
+variable "centos_install_url" {
+  description = "Installation tree URL - single source, not a mirror list."
+  type        = map(string)
+  default = {
+    "centos8" = ""
+    "centos9" = ""
+  }
+}
+
+variable "centos_mirror_appstream" {
+  description = "Appstream mirror list, if set packages will be updated on install."
+  type        = map(string)
+  default = {
+    "centos8" = ""
+    "centos9" = ""
+  }
+}
+
+variable "centos_mirror_baseos" {
+  description = "Baseos mirror list, if set packages will be updated on install."
+  type        = map(string)
+  default = {
+    "centos8" = ""
+    "centos9" = ""
+  }
+}
+
+variable "centos_mirror_extras" {
+  description = "Extras mirror list, if set packages will be updated on install."
+  type        = map(string)
+  default = {
+    "centos8" = ""
+    "centos9" = ""
+  }
+}
+
 variable "iso_url" {
   type = map(string)
   default = {
+    "centos8"  = ""
+    "centos9"  = ""
     "debian10" = "https://get.debian.org/images/archive/10.13.0/amd64/iso-cd/debian-10.13.0-amd64-netinst.iso"
     "debian11" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.6.0-amd64-netinst.iso"
     "ubuntu20" = "https://releases.ubuntu.com/20.04/ubuntu-20.04.5-live-server-amd64.iso"
@@ -33,6 +71,8 @@ variable "iso_url" {
 variable "iso_checksum" {
   type = map(string)
   default = {
+    "centos8"  = "file:"
+    "centos9"  = "file:"
     "debian10" = "file:https://get.debian.org/images/archive/10.13.0/amd64/iso-cd/SHA256SUMS"
     "debian11" = "file:https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS"
     "ubuntu20" = "file:https://releases.ubuntu.com/20.04/SHA256SUMS"
@@ -54,6 +94,8 @@ variable "os" {
 variable "vm_id" {
   type = map(number)
   default = {
+    "centos8"  = 0
+    "centos9"  = 0
     "debian10" = 0
     "debian11" = 0
     "ubuntu20" = 0
@@ -65,6 +107,18 @@ variable "vm_id" {
 variable "boot_wait" {
   type    = string
   default = "5s"
+}
+
+variable "boot_cmd_centos" {
+  description = "Boot command for CentOS Stream 8-9"
+  type        = list(string)
+  default = [
+    "<tab>",
+    "<bs><bs><bs><bs><bs>",
+    "hostname=centos ",
+    "inst.text inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/anaconda-ks.cfg ",
+    "<wait><enter>"
+  ]
 }
 
 variable "boot_cmd_debian" {

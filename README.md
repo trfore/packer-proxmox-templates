@@ -142,6 +142,7 @@ Reminder: `.gitignore`is set to ignore other `.auto.pkrvars.hcl` files, so stori
 | `pve_node`                | `pve`             | String, Proxmox target node for ISOs and templates       | **Yes**  | `node`                     |
 | `pve_username`            |                   | String, Proxmox username for Packer                      | **Yes**  | `username`                 |
 | `pve_token`               |                   | String, Proxmox token value for Packer                   | **Yes**  | `token`                    |
+| `iso_download_pve`        | `true`            | Boolean, All ISOs are downloaded to Proxmox              | No       |                            |
 | `cloud_init`              | `true`            | Boolean, Attach a cloud-init drive                       | No       | `cloud_init`               |
 | `cloud_init_storage_pool` | `local-lvm`       | String, Proxmox storage pool to use for cloud-init drive | No       | `cloud_init_storage_pool`  |
 | `scsi_controller`         | `virtio-scsi-pci` | String, SCSI controller model                            | No       |                            |

@@ -1,4 +1,10 @@
 // ISO Variables //
+variable "iso_download_pve" {
+  description = "Download the ISO directly on the Proxmox node."
+  type        = bool
+  default     = true
+}
+
 variable "iso_storage_pool" {
   type    = string
   default = "local"

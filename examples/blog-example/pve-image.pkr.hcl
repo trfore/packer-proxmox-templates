@@ -23,6 +23,7 @@ source "proxmox-iso" "image" {
   ssh_timeout               = "20m"
 
   // ISO
+  iso_download_pve     = true # added in v1.1.2
   iso_storage_pool     = "local"
   unmount_iso          = true
   os                   = "l26"

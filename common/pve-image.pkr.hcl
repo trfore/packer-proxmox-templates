@@ -39,7 +39,6 @@ source "proxmox-iso" "image" {
   disks {
     type              = var.disk_type
     storage_pool      = var.disk_storage_pool
-    storage_pool_type = var.disk_storage_pool_type
     disk_size         = var.disk_size
     cache_mode        = var.disk_cache_mode
     format            = var.disk_format

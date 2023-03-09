@@ -161,11 +161,6 @@ variable "disk_storage_pool" {
   default = "local-lvm"
 }
 
-variable "disk_storage_pool_type" {
-  type    = string
-  default = "lvm"
-}
-
 variable "disk_type" {
   type    = string
   default = "scsi"

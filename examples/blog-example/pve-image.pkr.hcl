@@ -39,7 +39,7 @@ source "proxmox-iso" "image" {
   disks {
     type              = "scsi"
     storage_pool      = "local-lvm"
-    storage_pool_type = "lvm"
+    // storage_pool_type = "lvm" # depreciated in v1.1.2
     disk_size         = "10G"
     cache_mode        = "writeback"
     format            = "raw"

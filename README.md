@@ -1,6 +1,6 @@
 # Packer Proxmox Templates
 
-Turnkey Packer templates for downloading Debian and Ubuntu images on Proxmox (PVE) and creating PVE templates -
+Turnkey Packer templates for downloading Debian, Fedora, and Ubuntu images on Proxmox (PVE) and creating PVE templates -
 see below for details on [CentOS](#centos).
 
 ```sh
@@ -227,6 +227,35 @@ See [`iso-vars.pkr.hcl`](common/iso-vars.pkr.hcl) and [`pve-vars.pkr.hcl`](commo
   }
   ```
 
+### Fedora
+
+- The **default** user is `fedora`, update the **username**, **ssh key(s)**, and/or **password** using the Proxmox
+  cloud-init GUI.
+- [Fedora kickstart file (link)](fedora/configs/anaconda-ks.cfg)
+- **Note**: Kickstart files are **stored on the image** at `/root/*-ks.cfg`
+- Installed packages are based on the group `server-product-environment`, consisting of:
+
+  - Groups: `core`, `server-product`, `standard`
+  - Packages: `qemu-guest-agent`
+  - Excluding:
+    - `container-management`: buildah, CNI and podman
+    - `hardware-support`: Intel wireless cards (in `core`), Thunderbolt, Marvell and Netronome NICs
+    - `headless-management`: cockpit pkgs and openssh-server
+
+  ```sh
+  $ dnf group info server-product-environment
+  Environment Group: Server
+  Description: An integrated, easy-to-manage server.
+  Mandatory Groups:
+    Container Management
+    Core
+    Hardware Support
+    Headless Management
+    Server product core
+    Standard
+  ...
+  ```
+
 ### Debian
 
 - The **default** user is `debian`, update the **username**, **ssh key(s)**, and/or **password** using the Proxmox
@@ -288,6 +317,13 @@ Debian:
 - [Debian Preseed](https://wiki.debian.org/DebianInstaller/Preseed)
 - [Debian Installation Guide - Preseeding](https://www.debian.org/releases/stable/amd64/apb.en.html)
 - [Debian Preseed Example](https://www.debian.org/releases/stable/example-preseed.txt)
+
+Fedora:
+
+- [Fedora Server](https://fedoraproject.org/en/server/download)
+- [Fedora Mirror Manager]
+- [Fedora Docs: Automating the Installation with Kickstart](https://docs.fedoraproject.org/en-US/fedora/f36/install-guide/advanced/Kickstart_Installations/)
+- [Fedora Docs: Kickstart Syntax Reference](https://docs.fedoraproject.org/en-US/fedora/f36/install-guide/appendixes/Kickstart_Syntax_Reference/#appe-kickstart-syntax-reference)
 
 Ubuntu:
 

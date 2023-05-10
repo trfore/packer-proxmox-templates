@@ -69,6 +69,7 @@ variable "iso_url" {
     "centos9"  = ""
     "debian10" = "https://get.debian.org/images/archive/10.13.0/amd64/iso-cd/debian-10.13.0-amd64-netinst.iso"
     "debian11" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.7.0-amd64-netinst.iso"
+    "fedora38" = "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso/Fedora-Server-netinst-x86_64-38-1.6.iso"
     "ubuntu20" = "https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso"
     "ubuntu22" = "https://releases.ubuntu.com/22.04/ubuntu-22.04.2-live-server-amd64.iso"
   }
@@ -81,6 +82,7 @@ variable "iso_checksum" {
     "centos9"  = "file:"
     "debian10" = "file:https://get.debian.org/images/archive/10.13.0/amd64/iso-cd/SHA256SUMS"
     "debian11" = "file:https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS"
+    "fedora38" = "file:https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso/Fedora-Server-38-1.6-x86_64-CHECKSUM"
     "ubuntu20" = "file:https://releases.ubuntu.com/20.04/SHA256SUMS"
     "ubuntu22" = "file:https://releases.ubuntu.com/22.04/SHA256SUMS"
   }
@@ -104,6 +106,7 @@ variable "vm_id" {
     "centos9"  = 0
     "debian10" = 0
     "debian11" = 0
+    "fedora38" = 0
     "ubuntu20" = 0
     "ubuntu22" = 0
   }
@@ -137,6 +140,18 @@ variable "boot_cmd_debian" {
     "priority=critical ",
     "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
     "<wait><enter>"
+  ]
+}
+
+variable "boot_cmd_fedora" {
+  description = "Boot command for Fedora"
+  type        = list(string)
+  default = [
+    "<up>",
+    "e",
+    "<down><down><down><left>",
+    " hostname=fedora",
+    " inst.ks=http://{{.HTTPIP}}:{{.HTTPPort}}/anaconda-ks.cfg <wait><f10>"
   ]
 }
 

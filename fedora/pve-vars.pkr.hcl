@@ -1,0 +1,1 @@
+../common/pve-vars.pkr.hcl

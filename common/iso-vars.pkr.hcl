@@ -71,7 +71,7 @@ variable "iso_url" {
     "debian11" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.7.0-amd64-netinst.iso"
     "fedora38" = "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso/Fedora-Server-netinst-x86_64-38-1.6.iso"
     "ubuntu20" = "https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso"
-    "ubuntu22" = "https://releases.ubuntu.com/22.04/ubuntu-22.04.2-live-server-amd64.iso"
+    "ubuntu22" = "https://releases.ubuntu.com/22.04/ubuntu-22.04.3-live-server-amd64.iso"
   }
 }
 

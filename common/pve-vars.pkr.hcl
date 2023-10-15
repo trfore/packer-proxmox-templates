@@ -141,6 +141,11 @@ variable "disk_cache_mode" {
   default = "writeback"
 }
 
+variable "disk_discard" {
+  type    = bool
+  default = false
+}
+
 variable "disk_format" {
   type    = string
   default = "raw"
@@ -154,6 +159,11 @@ variable "disk_io_thread" {
 variable "disk_size" {
   type    = string
   default = "10G"
+}
+
+variable "disk_ssd" {
+  type    = bool
+  default = false
 }
 
 variable "disk_storage_pool" {

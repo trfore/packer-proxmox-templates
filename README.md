@@ -149,6 +149,8 @@ Reminder: `.gitignore`is set to ignore other `.auto.pkrvars.hcl` files, so stori
 | `disk_type`               | `scsi`            | String, Storage bus/device                               | No       | `type`                     |
 | `disk_storage_pool`       | `local-lvm`       | String, Storage pool name                                | No       | `storage_pool`             |
 | `disk_cache_mode`         | `writeback`       | String, Storage cache mode                               | No       | `cache_mode`               |
+| `disk_discard`            | `false`           | Boolean, Enable Discard/TRIM support                     | No       | `discard`                  |
+| `disk_ssd`                | `false`           | Boolean, Enable SSD emulation                            | No       | `ssd`                      |
 | `net_bridge`              | `vmbr0`           | String, NIC name                                         | No       | `bridge`                   |
 | `net_model`               | `virtio`          | String, NIC type                                         | No       | `model`                    |
 | `net_vlan_tag`            | `1`               | String, NIC VLAN tag                                     | No       | `vlan_tag`                 |

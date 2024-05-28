@@ -1,0 +1,33 @@
+name: Question
+description: Ask a question
+title: "[Question]: "
+labels: ["question"]
+assignees:
+  - trfore
+body:
+  - type: textarea
+    id: general
+    attributes:
+      label: Question
+      placeholder: What's your question?
+    validations:
+      required: true
+
+  - type: textarea
+    id: build-code
+    attributes:
+      label: Relevant code
+      description: Please copy and paste any relevant code. This will be automatically formatted into code, so no need for backticks.
+      render: hcl
+
+  - type: textarea
+    id: packer-version
+    attributes:
+      label: Packer version
+      description: What version of Packer and Proxmox Plugin are you using?
+
+  - type: input
+    id: proxmox-version
+    attributes:
+      label: Proxmox version
+      description: What version of Proxmox are you running?

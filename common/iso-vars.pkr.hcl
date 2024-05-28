@@ -72,8 +72,10 @@ variable "iso_url" {
     "debian12" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd64-netinst.iso"
     "fedora38" = "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso/Fedora-Server-netinst-x86_64-38-1.6.iso"
     "fedora39" = "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Server/x86_64/iso/Fedora-Server-netinst-x86_64-39-1.5.iso"
+    "fedora40" = "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Server/x86_64/iso/Fedora-Server-netinst-x86_64-40-1.14.iso"
     "ubuntu20" = "https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso"
     "ubuntu22" = "https://releases.ubuntu.com/22.04/ubuntu-22.04.4-live-server-amd64.iso"
+    "ubuntu24" = "https://releases.ubuntu.com/24.04/ubuntu-24.04-live-server-amd64.iso"
   }
 }
 
@@ -87,8 +89,10 @@ variable "iso_checksum" {
     "debian12" = "file:https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS"
     "fedora38" = "file:https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso/Fedora-Server-38-1.6-x86_64-CHECKSUM"
     "fedora39" = "file:https://download.fedoraproject.org/pub/fedora/linux/releases/39/Server/x86_64/iso/Fedora-Server-39-1.5-x86_64-CHECKSUM"
+    "fedora40" = "file:https://download.fedoraproject.org/pub/fedora/linux/releases/40/Server/x86_64/iso/Fedora-Server-40-1.14-x86_64-CHECKSUM"
     "ubuntu20" = "file:https://releases.ubuntu.com/20.04/SHA256SUMS"
     "ubuntu22" = "file:https://releases.ubuntu.com/22.04/SHA256SUMS"
+    "ubuntu24" = "file:https://releases.ubuntu.com/24.04/SHA256SUMS"
   }
 }
 
@@ -113,8 +117,10 @@ variable "vm_id" {
     "debian12" = 0
     "fedora38" = 0
     "fedora39" = 0
+    "fedora40" = 0
     "ubuntu20" = 0
     "ubuntu22" = 0
+    "ubuntu24" = 0
   }
 }
 
@@ -173,7 +179,7 @@ variable "boot_cmd_ubuntu20" {
 }
 
 variable "boot_cmd_ubuntu22" {
-  description = "Boot command for Ubuntu 22"
+  description = "Boot command for Ubuntu 22 & 24"
   type        = list(string)
   default = [
     "c",

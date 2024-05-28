@@ -31,6 +31,22 @@ build {
     vm_id         = var.vm_id["fedora39"]
   }
 
+  source "proxmox-iso.image" {
+    name         = "fedora40"
+    boot_command = var.boot_cmd_fedora
+    boot_wait    = var.boot_wait
+    http_content = { "/anaconda-ks.cfg" = templatefile("configs/anaconda-ks.cfg",
+      {
+        var            = var,
+        ssh_public_key = chomp(file(var.ssh_public_key_file))
+      })
+    }
+    iso_url       = var.iso_url["fedora40"]
+    iso_checksum  = var.iso_checksum["fedora40"]
+    template_name = "fedora40"
+    vm_id         = var.vm_id["fedora40"]
+  }
+
   provisioner "shell" {
     inline = [
       // clean image identifiers

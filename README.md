@@ -185,6 +185,7 @@ create a `*.auto.pkrvars.hcl` within each OS folder (HCL type: `map(numeric)`):
 vm_id = {
   "ubuntu20" = 9020
   "ubuntu22" = 9022
+  "ubuntu24" = 9024
 }
 ```
 

@@ -1,0 +1,11 @@
+Group: Server product core
+ Description: Packages mandatory for the server product.
+ Mandatory Packages:
+   chrony
+   polkit
+   realmd
+   redhat-release
+   redhat-release-eula
+ Default Packages:
+   NetworkManager-config-server
+   NetworkManager-team

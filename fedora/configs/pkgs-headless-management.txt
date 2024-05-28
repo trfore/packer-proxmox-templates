@@ -1,0 +1,13 @@
+Group: Headless Management
+ Description: Tools for managing the system without an attached graphical console.
+ Mandatory Packages:
+   PackageKit
+   cockpit-bridge
+   cockpit-packagekit
+   cockpit-podman
+   cockpit-storaged
+   cockpit-system
+   cockpit-ws
+   openssh-server
+ Default Packages:
+   sscg

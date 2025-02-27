@@ -69,14 +69,14 @@ variable "iso_url" {
     "centos9"  = ""
     "debian10" = "https://get.debian.org/images/archive/10.13.0/amd64/iso-cd/debian-10.13.0-amd64-netinst.iso"
     "debian11" = "https://get.debian.org/images/archive/11.11.0/amd64/iso-cd/debian-11.11.0-amd64-netinst.iso"
-    "debian12" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.7.0-amd64-netinst.iso"
+    "debian12" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.9.0-amd64-netinst.iso"
     "fedora38" = "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso/Fedora-Server-netinst-x86_64-38-1.6.iso"
     "fedora39" = "https://download.fedoraproject.org/pub/fedora/linux/releases/39/Server/x86_64/iso/Fedora-Server-netinst-x86_64-39-1.5.iso"
     "fedora40" = "https://download.fedoraproject.org/pub/fedora/linux/releases/40/Server/x86_64/iso/Fedora-Server-netinst-x86_64-40-1.14.iso"
     "fedora41" = "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/x86_64/iso/Fedora-Server-netinst-x86_64-41-1.4.iso"
     "ubuntu20" = "https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso"
     "ubuntu22" = "https://releases.ubuntu.com/22.04/ubuntu-22.04.5-live-server-amd64.iso"
-    "ubuntu24" = "https://releases.ubuntu.com/24.04/ubuntu-24.04.1-live-server-amd64.iso"
+    "ubuntu24" = "https://releases.ubuntu.com/24.04/ubuntu-24.04.2-live-server-amd64.iso"
   }
 }
 

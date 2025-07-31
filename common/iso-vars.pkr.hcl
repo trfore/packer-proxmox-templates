@@ -69,7 +69,7 @@ variable "iso_url" {
     "centos9"  = ""
     "debian10" = "https://get.debian.org/images/archive/10.13.0/amd64/iso-cd/debian-10.13.0-amd64-netinst.iso"
     "debian11" = "https://get.debian.org/images/archive/11.11.0/amd64/iso-cd/debian-11.11.0-amd64-netinst.iso"
-    "debian12" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.10.0-amd64-netinst.iso"
+    "debian12" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.11.0-amd64-netinst.iso"
     "fedora41" = "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/x86_64/iso/Fedora-Server-netinst-x86_64-41-1.4.iso"
     "fedora42" = "https://download.fedoraproject.org/pub/fedora/linux/releases/42/Server/x86_64/iso/Fedora-Server-netinst-x86_64-42-1.1.iso"
     "ubuntu20" = "https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso"

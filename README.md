@@ -61,7 +61,7 @@ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/packer_id_ed25519 -C "Packer"
 
 ```sh Grant Packer Access to Proxmox
 # create role
-pveum role add PackerUser --privs "Datastore.AllocateSpace Datastore.AllocateTemplate Datastore.Audit Sys.Audit Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Console VM.Monitor VM.PowerMgmt"
+pveum role add PackerUser --privs "Datastore.AllocateSpace Datastore.AllocateTemplate Datastore.Audit SDN.Use Sys.Audit Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Console VM.Monitor VM.PowerMgmt"
 
 # create group
 pveum group add packer-users
@@ -289,7 +289,7 @@ See [`iso-vars.pkr.hcl`](common/iso-vars.pkr.hcl) and [`pve-vars.pkr.hcl`](commo
 
 ## Maintainers & License
 
-Taylor Fore [(@trfore)](https://github.com/trfore)
+[(@trfore)](https://github.com/trfore)
 
 See [LICENSE](LICENSE) File
 

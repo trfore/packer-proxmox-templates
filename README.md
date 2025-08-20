@@ -289,7 +289,7 @@ See [`iso-vars.pkr.hcl`](common/iso-vars.pkr.hcl) and [`pve-vars.pkr.hcl`](commo
 
 ## Maintainers & License
 
-Taylor Fore [(@trfore)](https://github.com/trfore)
+[(@trfore)](https://github.com/trfore)
 
 See [LICENSE](LICENSE) File
 

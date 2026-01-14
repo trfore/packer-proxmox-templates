@@ -45,6 +45,29 @@ variable "ssh_clear_authorized_keys" {
   default = true
 }
 
+//HTTP server Variabels
+variable "http_interface" {
+  description = "Optional. Interface name to use as source for {{ .HTTPIP }} (e.g. vmbr0). Leave empty for default auto-selection."
+  type        = string
+  default     = ""
+}
+variable "http_bind_address" {
+  description = "Optional. IP address to bind Packer's internal HTTP server (used for {{ .HTTPIP }}). Leave empty for default auto-selection."
+  type        = string
+  default     = ""
+}
+variable "http_port_min" {
+  description = "Optional. The minimum HTTP port of the range for preloading files."
+  type        = number
+  default     = 8033
+}
+variable "http_port_max" {
+  description = "Optional. The maximum HTTP port in the range for preloading files."
+  type        = number
+  default     = 8033
+}
+
+
 // PVE Variables //
 // Sensitive Variables to Pass as CLI Args or Env Vars
 variable "pve_token" {

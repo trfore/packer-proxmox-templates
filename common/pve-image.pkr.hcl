@@ -22,6 +22,12 @@ source "proxmox-iso" "image" {
   ssh_private_key_file      = var.ssh_private_key_file
   ssh_clear_authorized_keys = var.ssh_clear_authorized_keys
 
+  // HTTP server
+  http_interface    = var.http_interface
+  http_bind_address = var.http_bind_address
+  http_port_min     = var.http_port_min
+  http_port_max     = var.http_port_max
+
   // ISO
   iso_download_pve     = var.iso_download_pve
   iso_storage_pool     = var.iso_storage_pool

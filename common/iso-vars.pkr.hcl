@@ -190,3 +190,8 @@ variable "boot_cmd_ubuntu22" {
     "boot<enter>"
   ]
 }
+variable "task_timeout" {
+  description = "The timeout for Promox API operations, e.g. clones. Defaults to 1 minute."
+  type        = string
+  default     = "1m"
+}

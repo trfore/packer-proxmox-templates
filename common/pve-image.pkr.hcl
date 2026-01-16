@@ -34,6 +34,8 @@ source "proxmox-iso" "image" {
   unmount_iso          = var.unmount_iso
   os                   = var.os
   template_description = "Packer generated template image on ${timestamp()}"
+  task_timeout         = var.task_timeout
+
 
   // System
   machine    = var.machine

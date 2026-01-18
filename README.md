@@ -296,6 +296,37 @@ See [`iso-vars.pkr.hcl`](common/iso-vars.pkr.hcl) and [`pve-vars.pkr.hcl`](commo
   Acquire::https::proxy "DIRECT";
   ```
 
+### Using custom user scripts
+
+You can add distribution-specific custom scripts that will be copied into the VM during the Packer build and executed as root. The common pattern is to create a custom_scripts/ directory inside the distribution folder (for example: `debian/custom_scripts/`) and put one or more executable shell scripts there.
+
+How to enable
+
+Add a `user_scripts` variable in a `*.auto.pkrvars.hcl` file inside the distribution folder listing the scripts (paths are relative to the distribution directory):
+
+```hcl
+// debian.auto.pkrvars.hcl
+user_scripts = [
+  "custom_scripts/custom_packages_install.sh",
+  "custom_scripts/docker_install.sh",
+]
+```
+
+Behavior and recommendations
+
+- Paths are relative to the distribution directory and should point to files present when running `packer build`.
+- Scripts are executed in the same order as listed in `user_scripts`.
+- Scripts run as `root` inside the guest during the build — make sure they are safe and idempotent.
+- Ensure each script is executable (e.g. `chmod +x debian/custom_scripts/*.sh`) and contains a proper shebang, for example:
+
+```bash
+#!/bin/bash
+set -euxo pipefail
+```
+
+- The strict shell flags above (`set -euxo pipefail`) are recommended so failures are visible and the build fails fast.
+- If a script performs long-running work, increase `task_timeout` accordingly (see example above).
+
 ## Maintainers & License
 
 [(@trfore)](https://github.com/trfore)

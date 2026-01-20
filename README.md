@@ -42,7 +42,6 @@ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/packer_id_ed25519 -C "Packer"
 ## Repo Layout
 
 - Common files are stored in `common/`, with each distribution folder containing symlinks to these files.
-
   - [`iso-vars.pkr.hcl`](common/iso-vars.pkr.hcl) contains ISO URLs and boot commands for each distribution. This file
     is updated as new releases become available.
   - [`pve-image.pkr.hcl`](common/pve-image.pkr.hcl) is the main source file.
@@ -126,7 +125,7 @@ packer build \
 -var='pve_node=node01' \
 -var='pve_username=packer@pve!token' \
 -var='pve_token=782a7700-4010-4802-8f4d-820f1b226850' \
--only=proxmox-iso.ubuntu20 \
+-only=proxmox-iso.ubuntu24 \
 .
 ```
 
@@ -177,12 +176,12 @@ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/packer_id_ed25519 -C "Packer"
 
 ### HTTP Server
 
-| Variable          | Default | Description                                                                 | Required |
-| ----------------- | ------- | --------------------------------------------------------------------------- | -------- |
-| `http_interface`  | `''`    | String, Optional. Interface name to use as source for {{ .HTTPIP }} (e.g. vmbr0). Leave empty for default auto-selection. | No       |
+| Variable            | Default | Description                                                                                                                          | Required |
+| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| `http_interface`    | `''`    | String, Optional. Interface name to use as source for {{ .HTTPIP }} (e.g. vmbr0). Leave empty for default auto-selection.            | No       |
 | `http_bind_address` | `''`    | String, Optional. IP address to bind Packer's internal HTTP server (used for {{ .HTTPIP }}). Leave empty for default auto-selection. | No       |
-| `http_port_min`   | `8033`  | Number, Optional. The minimum HTTP port of the range for preloading files. | No       |
-| `http_port_max`   | `8033`  | Number, Optional. The maximum HTTP port in the range for preloading files. | No       |
+| `http_port_min`     | `8033`  | Number, Optional. The minimum HTTP port of the range for preloading files.                                                           | No       |
+| `http_port_max`     | `8033`  | Number, Optional. The maximum HTTP port in the range for preloading files.                                                           | No       |
 
 ### VM IDs
 
@@ -192,7 +191,6 @@ create a `*.auto.pkrvars.hcl` within each OS folder (HCL type: `map(numeric)`):
 ```HCL
 // ubuntu.auto.pkrvars.hcl
 vm_id = {
-  "ubuntu20" = 9020
   "ubuntu22" = 9022
   "ubuntu24" = 9024
 }
@@ -226,15 +224,12 @@ See [`iso-vars.pkr.hcl`](common/iso-vars.pkr.hcl) and [`pve-vars.pkr.hcl`](commo
   ```HCL
   // centos.auto.pkrvars.hcl
   centos_install_url = {
-    "centos8" = "https://mirror.example.com/centos/8-stream/BaseOS/x86_64/os/"
     "centos9" = "https://mirror.example.com/centos-stream/9-stream/BaseOS/x86_64/os/"
   }
   iso_url = {
-    "centos8" = "https://mirror.example.com/centos/8-stream/isos/x86_64/CentOS-Stream-8-x86_64-latest-boot.iso"
     "centos9" = "https://mirror.example.com/centos-stream/9-stream/BaseOS/x86_64/iso/CentOS-Stream-9-latest-x86_64-boot.iso"
   }
   iso_checksum = {
-    "centos8" = "file:https://mirror.example.com/centos/8-stream/isos/x86_64/CHECKSUM"
     "centos9" = "file:https://mirror.example.com/centos-stream/9-stream/BaseOS/x86_64/iso/CentOS-Stream-9-latest-x86_64-boot.iso.MD5SUM"
   }
   ```
@@ -246,7 +241,6 @@ See [`iso-vars.pkr.hcl`](common/iso-vars.pkr.hcl) and [`pve-vars.pkr.hcl`](commo
 - [Fedora kickstart file (link)](fedora/configs/anaconda-ks.cfg)
 - **Note**: Kickstart files are **stored on the image** at `/root/*-ks.cfg`
 - Installed packages are based on the group `server-product-environment`, consisting of:
-
   - Groups: `core`, `server-product`, `standard`
   - Packages: `qemu-guest-agent`
   - Excluding:
@@ -327,11 +321,16 @@ set -euxo pipefail
 - The strict shell flags above (`set -euxo pipefail`) are recommended so failures are visible and the build fails fast.
 - If a script performs long-running work, increase `task_timeout` accordingly (see example above).
 
-## Maintainers & License
-
-[(@trfore)](https://github.com/trfore)
+## License
 
 See [LICENSE](LICENSE) File
+
+## Contributors
+
+- [trfore](https://github.com/trfore) - original author and maintainer
+- [ker1s](https://github.com/ker1s)
+
+Interested in adding a feature or fixing a bug? Checkout the [contributing guide](CONTRIBUTING.md).
 
 ## References
 

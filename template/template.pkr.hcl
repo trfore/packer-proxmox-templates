@@ -2,7 +2,7 @@ build {
   // using local ISO and hard-coded config files
   source "proxmox-iso.image" {
     name           = "packer00"
-    boot_command   = var.boot_cmd_ubuntu20
+    boot_command   = var.boot_cmd_ubuntu22
     boot_wait      = var.boot_wait
     http_directory = "configs"
     iso_file       = "local:iso/linux.iso"
@@ -13,7 +13,7 @@ build {
   // serving a config template using 'http_content'
   source "proxmox-iso.image" {
     name         = "packer01"
-    boot_command = var.boot_cmd_ubuntu20
+    boot_command = var.boot_cmd_ubuntu22
     boot_wait    = var.boot_wait
     http_content = {
       "/meta-data" = file("configs/meta-data")
@@ -23,8 +23,8 @@ build {
           ssh_public_key = chomp(file(var.ssh_public_key_file))
       })
     }
-    iso_url       = var.iso_url["ubuntu20"]
-    iso_checksum  = var.iso_checksum["ubuntu20"]
+    iso_url       = var.iso_url["ubuntu24"]
+    iso_checksum  = var.iso_checksum["ubuntu24"]
     template_name = "packer-image"
     vm_id         = var.vm_id["packer01"]
   }

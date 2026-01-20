@@ -72,7 +72,6 @@ variable "iso_url" {
     "debian13" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.3.0-amd64-netinst.iso"
     "fedora42" = "https://download.fedoraproject.org/pub/fedora/linux/releases/42/Server/x86_64/iso/Fedora-Server-netinst-x86_64-42-1.1.iso"
     "fedora43" = "https://download.fedoraproject.org/pub/fedora/linux/releases/43/Server/x86_64/iso/Fedora-Server-netinst-x86_64-43-1.6.iso"
-    "ubuntu20" = "https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso"
     "ubuntu22" = "https://releases.ubuntu.com/22.04/ubuntu-22.04.5-live-server-amd64.iso"
     "ubuntu24" = "https://releases.ubuntu.com/24.04/ubuntu-24.04.3-live-server-amd64.iso"
   }
@@ -88,7 +87,6 @@ variable "iso_checksum" {
     "debian13" = "file:https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS"
     "fedora42" = "file:https://download.fedoraproject.org/pub/fedora/linux/releases/42/Server/x86_64/iso/Fedora-Server-42-1.1-x86_64-CHECKSUM"
     "fedora43" = "file:https://download.fedoraproject.org/pub/fedora/linux/releases/43/Server/x86_64/iso/Fedora-Server-43-1.6-x86_64-CHECKSUM"
-    "ubuntu20" = "file:https://releases.ubuntu.com/20.04/SHA256SUMS"
     "ubuntu22" = "file:https://releases.ubuntu.com/22.04/SHA256SUMS"
     "ubuntu24" = "file:https://releases.ubuntu.com/24.04/SHA256SUMS"
   }
@@ -115,7 +113,6 @@ variable "vm_id" {
     "debian13" = 0
     "fedora42" = 0
     "fedora43" = 0
-    "ubuntu20" = 0
     "ubuntu22" = 0
     "ubuntu24" = 0
   }
@@ -161,17 +158,6 @@ variable "boot_cmd_fedora" {
     "<down><down><down><left>",
     " hostname=fedora",
     " inst.ks=http://{{.HTTPIP}}:{{.HTTPPort}}/anaconda-ks.cfg <wait><f10>"
-  ]
-}
-
-variable "boot_cmd_ubuntu20" {
-  description = "Boot command for Ubuntu 20"
-  type        = list(string)
-  default = [
-    "<esc><wait><esc><wait><f6><wait><esc><wait>",
-    "<bs><bs><bs><bs>",
-    "autoinstall ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/",
-    "<wait><enter>"
   ]
 }
 

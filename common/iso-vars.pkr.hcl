@@ -30,7 +30,6 @@ variable "centos_install_url" {
   description = "Installation tree URL - single source, not a mirror list."
   type        = map(string)
   default = {
-    "centos8" = ""
     "centos9" = ""
   }
 }
@@ -39,7 +38,6 @@ variable "centos_mirror_appstream" {
   description = "Appstream mirror list, if set packages will be updated on install."
   type        = map(string)
   default = {
-    "centos8" = ""
     "centos9" = ""
   }
 }
@@ -48,7 +46,6 @@ variable "centos_mirror_baseos" {
   description = "Baseos mirror list, if set packages will be updated on install."
   type        = map(string)
   default = {
-    "centos8" = ""
     "centos9" = ""
   }
 }
@@ -57,7 +54,6 @@ variable "centos_mirror_extras" {
   description = "Extras mirror list, if set packages will be updated on install."
   type        = map(string)
   default = {
-    "centos8" = ""
     "centos9" = ""
   }
 }
@@ -65,7 +61,6 @@ variable "centos_mirror_extras" {
 variable "iso_url" {
   type = map(string)
   default = {
-    "centos8"  = ""
     "centos9"  = ""
     "debian11" = "https://get.debian.org/images/archive/11.11.0/amd64/iso-cd/debian-11.11.0-amd64-netinst.iso"
     "debian12" = "https://get.debian.org/images/archive/12.13.0/amd64/iso-cd/debian-12.13.0-amd64-netinst.iso"
@@ -80,7 +75,6 @@ variable "iso_url" {
 variable "iso_checksum" {
   type = map(string)
   default = {
-    "centos8"  = "file:"
     "centos9"  = "file:"
     "debian11" = "file:https://get.debian.org/images/archive/11.11.0/amd64/iso-cd/SHA256SUMS"
     "debian12" = "file:https://get.debian.org/images/archive/12.13.0/amd64/iso-cd/SHA256SUMS"
@@ -106,7 +100,6 @@ variable "os" {
 variable "vm_id" {
   type = map(number)
   default = {
-    "centos8"  = 0
     "centos9"  = 0
     "debian11" = 0
     "debian12" = 0

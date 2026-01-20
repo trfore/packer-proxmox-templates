@@ -224,15 +224,12 @@ See [`iso-vars.pkr.hcl`](common/iso-vars.pkr.hcl) and [`pve-vars.pkr.hcl`](commo
   ```HCL
   // centos.auto.pkrvars.hcl
   centos_install_url = {
-    "centos8" = "https://mirror.example.com/centos/8-stream/BaseOS/x86_64/os/"
     "centos9" = "https://mirror.example.com/centos-stream/9-stream/BaseOS/x86_64/os/"
   }
   iso_url = {
-    "centos8" = "https://mirror.example.com/centos/8-stream/isos/x86_64/CentOS-Stream-8-x86_64-latest-boot.iso"
     "centos9" = "https://mirror.example.com/centos-stream/9-stream/BaseOS/x86_64/iso/CentOS-Stream-9-latest-x86_64-boot.iso"
   }
   iso_checksum = {
-    "centos8" = "file:https://mirror.example.com/centos/8-stream/isos/x86_64/CHECKSUM"
     "centos9" = "file:https://mirror.example.com/centos-stream/9-stream/BaseOS/x86_64/iso/CentOS-Stream-9-latest-x86_64-boot.iso.MD5SUM"
   }
   ```

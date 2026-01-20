@@ -327,11 +327,16 @@ set -euxo pipefail
 - The strict shell flags above (`set -euxo pipefail`) are recommended so failures are visible and the build fails fast.
 - If a script performs long-running work, increase `task_timeout` accordingly (see example above).
 
-## Maintainers & License
-
-[(@trfore)](https://github.com/trfore)
+## License
 
 See [LICENSE](LICENSE) File
+
+## Contributors
+
+- [trfore](https://github.com/trfore) - original author and maintainer
+- [ker1s](https://github.com/ker1s)
+
+Interested in adding a feature or fixing a bug? Checkout the [contributing guide](CONTRIBUTING.md).
 
 ## References
 

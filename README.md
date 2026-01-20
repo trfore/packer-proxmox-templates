@@ -42,7 +42,6 @@ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/packer_id_ed25519 -C "Packer"
 ## Repo Layout
 
 - Common files are stored in `common/`, with each distribution folder containing symlinks to these files.
-
   - [`iso-vars.pkr.hcl`](common/iso-vars.pkr.hcl) contains ISO URLs and boot commands for each distribution. This file
     is updated as new releases become available.
   - [`pve-image.pkr.hcl`](common/pve-image.pkr.hcl) is the main source file.
@@ -177,12 +176,12 @@ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/packer_id_ed25519 -C "Packer"
 
 ### HTTP Server
 
-| Variable          | Default | Description                                                                 | Required |
-| ----------------- | ------- | --------------------------------------------------------------------------- | -------- |
-| `http_interface`  | `''`    | String, Optional. Interface name to use as source for {{ .HTTPIP }} (e.g. vmbr0). Leave empty for default auto-selection. | No       |
+| Variable            | Default | Description                                                                                                                          | Required |
+| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| `http_interface`    | `''`    | String, Optional. Interface name to use as source for {{ .HTTPIP }} (e.g. vmbr0). Leave empty for default auto-selection.            | No       |
 | `http_bind_address` | `''`    | String, Optional. IP address to bind Packer's internal HTTP server (used for {{ .HTTPIP }}). Leave empty for default auto-selection. | No       |
-| `http_port_min`   | `8033`  | Number, Optional. The minimum HTTP port of the range for preloading files. | No       |
-| `http_port_max`   | `8033`  | Number, Optional. The maximum HTTP port in the range for preloading files. | No       |
+| `http_port_min`     | `8033`  | Number, Optional. The minimum HTTP port of the range for preloading files.                                                           | No       |
+| `http_port_max`     | `8033`  | Number, Optional. The maximum HTTP port in the range for preloading files.                                                           | No       |
 
 ### VM IDs
 
@@ -246,7 +245,6 @@ See [`iso-vars.pkr.hcl`](common/iso-vars.pkr.hcl) and [`pve-vars.pkr.hcl`](commo
 - [Fedora kickstart file (link)](fedora/configs/anaconda-ks.cfg)
 - **Note**: Kickstart files are **stored on the image** at `/root/*-ks.cfg`
 - Installed packages are based on the group `server-product-environment`, consisting of:
-
   - Groups: `core`, `server-product`, `standard`
   - Packages: `qemu-guest-agent`
   - Excluding:

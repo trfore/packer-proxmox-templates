@@ -71,8 +71,8 @@ variable "iso_url" {
     "debian11" = "https://get.debian.org/images/archive/11.11.0/amd64/iso-cd/debian-11.11.0-amd64-netinst.iso"
     "debian12" = "https://get.debian.org/images/archive/12.11.0/amd64/iso-cd/debian-12.11.0-amd64-netinst.iso"
     "debian13" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.3.0-amd64-netinst.iso"
-    "fedora41" = "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/x86_64/iso/Fedora-Server-netinst-x86_64-41-1.4.iso"
     "fedora42" = "https://download.fedoraproject.org/pub/fedora/linux/releases/42/Server/x86_64/iso/Fedora-Server-netinst-x86_64-42-1.1.iso"
+    "fedora43" = "https://download.fedoraproject.org/pub/fedora/linux/releases/43/Server/x86_64/iso/Fedora-Server-netinst-x86_64-43-1.6.iso"
     "ubuntu20" = "https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso"
     "ubuntu22" = "https://releases.ubuntu.com/22.04/ubuntu-22.04.5-live-server-amd64.iso"
     "ubuntu24" = "https://releases.ubuntu.com/24.04/ubuntu-24.04.3-live-server-amd64.iso"
@@ -88,8 +88,8 @@ variable "iso_checksum" {
     "debian11" = "file:https://get.debian.org/images/archive/11.11.0/amd64/iso-cd/SHA256SUMS"
     "debian12" = "file:https://get.debian.org/images/archive/12.11.0/amd64/iso-cd/SHA256SUMS"
     "debian13" = "file:https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS"
-    "fedora41" = "file:https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/x86_64/iso/Fedora-Server-41-1.4-x86_64-CHECKSUM"
     "fedora42" = "file:https://download.fedoraproject.org/pub/fedora/linux/releases/42/Server/x86_64/iso/Fedora-Server-42-1.1-x86_64-CHECKSUM"
+    "fedora43" = "file:https://download.fedoraproject.org/pub/fedora/linux/releases/43/Server/x86_64/iso/Fedora-Server-43-1.6-x86_64-CHECKSUM"
     "ubuntu20" = "file:https://releases.ubuntu.com/20.04/SHA256SUMS"
     "ubuntu22" = "file:https://releases.ubuntu.com/22.04/SHA256SUMS"
     "ubuntu24" = "file:https://releases.ubuntu.com/24.04/SHA256SUMS"
@@ -116,8 +116,8 @@ variable "vm_id" {
     "debian11" = 0
     "debian12" = 0
     "debian13" = 0
-    "fedora41" = 0
     "fedora42" = 0
+    "fedora43" = 0
     "ubuntu20" = 0
     "ubuntu22" = 0
     "ubuntu24" = 0

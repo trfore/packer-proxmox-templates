@@ -67,7 +67,6 @@ variable "iso_url" {
   default = {
     "centos8"  = ""
     "centos9"  = ""
-    "debian10" = "https://get.debian.org/images/archive/10.13.0/amd64/iso-cd/debian-10.13.0-amd64-netinst.iso"
     "debian11" = "https://get.debian.org/images/archive/11.11.0/amd64/iso-cd/debian-11.11.0-amd64-netinst.iso"
     "debian12" = "https://get.debian.org/images/archive/12.11.0/amd64/iso-cd/debian-12.11.0-amd64-netinst.iso"
     "debian13" = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.3.0-amd64-netinst.iso"
@@ -84,7 +83,6 @@ variable "iso_checksum" {
   default = {
     "centos8"  = "file:"
     "centos9"  = "file:"
-    "debian10" = "file:https://get.debian.org/images/archive/10.13.0/amd64/iso-cd/SHA256SUMS"
     "debian11" = "file:https://get.debian.org/images/archive/11.11.0/amd64/iso-cd/SHA256SUMS"
     "debian12" = "file:https://get.debian.org/images/archive/12.11.0/amd64/iso-cd/SHA256SUMS"
     "debian13" = "file:https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS"
@@ -112,7 +110,6 @@ variable "vm_id" {
   default = {
     "centos8"  = 0
     "centos9"  = 0
-    "debian10" = 0
     "debian11" = 0
     "debian12" = 0
     "debian13" = 0
@@ -202,4 +199,3 @@ variable "task_timeout" {
   type        = string
   default     = "1m"
 }
-

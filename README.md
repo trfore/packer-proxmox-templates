@@ -125,7 +125,7 @@ packer build \
 -var='pve_node=node01' \
 -var='pve_username=packer@pve!token' \
 -var='pve_token=782a7700-4010-4802-8f4d-820f1b226850' \
--only=proxmox-iso.ubuntu20 \
+-only=proxmox-iso.ubuntu24 \
 .
 ```
 
@@ -191,7 +191,6 @@ create a `*.auto.pkrvars.hcl` within each OS folder (HCL type: `map(numeric)`):
 ```HCL
 // ubuntu.auto.pkrvars.hcl
 vm_id = {
-  "ubuntu20" = 9020
   "ubuntu22" = 9022
   "ubuntu24" = 9024
 }

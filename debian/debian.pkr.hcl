@@ -71,15 +71,8 @@ build {
     vm_id         = var.vm_id["debian13"]
   }
 
+  // 'scripts' accepts a list of local paths; Packer uploads and executes them in order.
   provisioner "shell" {
-    inline = [
-      // clean image identifiers
-      "cloud-init clean --seed",
-      "truncate -s 0 /etc/machine-id && ln -sf /etc/machine-id /var/lib/dbus/machine-id",
-      "rm /etc/hostname /etc/ssh/ssh_host_* /var/lib/systemd/random-seed",
-      "truncate -s 0 /root/.ssh/authorized_keys",
-      "sed -i 's/^#PasswordAuthentication\\ yes/PasswordAuthentication\\ no/' /etc/ssh/sshd_config",
-      "sed -i 's/^#PermitRootLogin\\ prohibit-password/PermitRootLogin\\ no/' /etc/ssh/sshd_config"
-    ]
+    scripts = concat(var.user_scripts, ["configs/cleanup.sh"])
   }
 }

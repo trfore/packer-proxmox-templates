@@ -190,3 +190,16 @@ variable "boot_cmd_ubuntu22" {
     "boot<enter>"
   ]
 }
+
+variable "user_scripts" {
+  description = "Additional local script paths to upload and run after the built-in scripts. These are appended to the default scripts and will not replace them."
+  type        = list(string)
+  default     = []
+}
+
+variable "task_timeout" {
+  description = "The timeout for Promox API operations, e.g. clones. Defaults to 1 minute."
+  type        = string
+  default     = "1m"
+}
+

@@ -41,11 +41,9 @@ vm_id = {                                           // Manually assign VM number
 
 ### Documentation
 
-- New features or extensive code changes need to be accompanied by documentation in the README.
-
+- Please update the README with use examples or helpful tips on any new features.
 
 ## Additional References
 
-- [Ansible community guide](https://docs.ansible.com/ansible/devel/community/index.html)
 - [Github Docs: Forking a repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository)
-- [Ansible Docs: `ansible-core` support matrix](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix)
+- [Packer Docs](https://developer.hashicorp.com/packer/docs)

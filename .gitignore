@@ -14,5 +14,5 @@ crash.log
 *.auto.pkrvars.hcl
 ## example file for public repo use
 !example.auto.pkrvars.hcl
-!template.auto.pkrvars.hcl
+!template/template.auto.pkrvars.hcl
 */custom_scripts/

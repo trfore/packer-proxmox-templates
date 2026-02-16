@@ -59,8 +59,11 @@ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/packer_id_ed25519 -C "Packer"
 ## Grant Packer Access to Proxmox
 
 ```sh Grant Packer Access to Proxmox
-# create role
+# create role in PVE 7-8
 pveum role add PackerUser --privs "Datastore.AllocateSpace Datastore.AllocateTemplate Datastore.Audit SDN.Use Sys.Audit Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Console VM.Monitor VM.PowerMgmt"
+
+# create role in PVE 9
+pveum role add PackerUser --privs "Datastore.AllocateSpace Datastore.AllocateTemplate Datastore.Audit SDN.Use Sys.Audit Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Console VM.PowerMgmt"
 
 # create group
 pveum group add packer-users
